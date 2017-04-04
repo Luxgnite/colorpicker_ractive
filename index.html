@@ -18,13 +18,16 @@
         </div>
 
         <script id="template" type="text/html">
-
+            <div class="flex-col">
+                {{#each colors}}
                 <div class="flex-row picker">
-                    <label>{{colors.name}}</label>
+                    <label>{{name}}</label>
                     <input type="range" max="255" value="{{value}}"
-                           style="background: linear-gradient(to left, {{colors.name}}, black);">
-                    <p>{{colors.value}}</p>
+                           style="background: linear-gradient(to left, {{name}}, black);">
+                    <p>{{value}}</p>
                 </div>
+                {{/each}}
+            </div>
 
         </script>
 
