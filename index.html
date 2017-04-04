@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en-GB'>
+<head>
+    <meta charset='utf-8'>
+    <title>Colorpicker</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src='http://cdn.ractivejs.org/latest/ractive.js'></script>
+</head>
+
+<body>
+<div id="content-wrapper">
+    <header>
+        <h1>Colorpicker</h1>
+    </header>
+
+    <main>
+        <div id="colorpicker" class="flex-row">
+        </div>
+
+        <script id="template" type="text/html">
+            <div class="flex-col" id="pickers-wrapper">
+
+                {{#each colors}}
+
+                <div class="flex-row picker">
+                    <label>{{name}}</label>
+                    <input type="range" max="255" value="{{value}}"
+                           style="background: linear-gradient(to left, {{name}}, black);">
+                    <p>{{value}}</p>
+                </div>
+
+                {{/each}}
+
+                <button on-click="addColor" id="addColor">Ajouter</button>
+
+            </div>
+            <div class="flex-col">
+
+                <div class="flex-row">
+                    <div id='color-show' style="background: #{{hexa()}}"></div>
+                    <p id="hexa">#{{hexa()}}</p>
+                </div>
+
+                <h3>Couleurs favorites : </h3>
+
+                <div class="flex-row" id='favColors'>
+
+                    {{#each favColors:index}}
+                    <button on-click="restoreColor:{{index}}" class="favColor" style="background: #{{value}}"></button>
+                    {{/each}}
+
+                </div>
+
+            </div>
+
+        </script>
+
+        <script src="js/script.js"></script>
+    </main>
+
+</div>
+</body>
+</html>
