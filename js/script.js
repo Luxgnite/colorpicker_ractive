@@ -1,5 +1,10 @@
 var ractive = new Ractive({
     el: '#colorpicker',
     template: "#template",
-    data: {}
+    data: {
+        colors: {
+            name: 'red',
+            value: 0
+        }
+    }
 });
